@@ -27,9 +27,52 @@ public class PasswordGenerator {
         // ask the user whether to include uppercase letters
         System.out.print("Include uppercase letters? (yes/no)");
         String includeUpperCase = scanner.nextLine();
+        // add uppercase letters to our passwordCharacters
+        if(includeUpperCase.equalsIgnoreCase("yes")){
+            passwordCharacters.append(uppercaseLetters);
+        }
+
+        // ask the user whether to include lowercase letters
+        System.out.print("Include uppercase letters? (yes/no)");
+        String includelowerCase = scanner.nextLine();
+        // add lowercase letters to our passwordCharacters
+        if(includelowerCase.equalsIgnoreCase("yes")){
+            passwordCharacters.append(lowercaseLetters);
+        }
 
 
+        // ask the user whether to include numbers
+        System.out.print("Include numbers? (yes/no)");
+        String includeNumbers = scanner.nextLine();
+        // add lowercase letters to our passwordCharacters
+        if(includeNumbers.equalsIgnoreCase("yes")){
+            passwordCharacters.append(numbers);
+        }
 
+
+        // ask the user whether to include special letters
+        System.out.print("Include special characters? (yes/no)");
+        String includeSpecial = scanner.nextLine();
+        // add lowercase letters to our passwordCharacters
+        if(includeSpecial.equalsIgnoreCase("yes")){
+            passwordCharacters.append(specialCharacters);
+        }
+
+        // will be the final password
+        StringBuilder password = new StringBuilder();
+
+        // generate the password by randomly slecting characters from the possible characters variable  (passwordCharacters)
+        for(int x=0; x<length; x++){
+
+            // generate a random index to select a character from (passwordCharacters)
+            int index = random.nextInt(passwordCharacters.length());
+
+            password.append(passwordCharacters.charAt(index));
+
+        }
+
+        System.out.println("Generated Password : "+password.toString());
+        scanner.close();
     }
 
 }
